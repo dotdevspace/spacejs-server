@@ -11,10 +11,7 @@ let $server = require('http').createServer()
 let $io = require('socket.io').listen($server)
 
 const $namespace = '.devSPACE'
-const $config = {
-  PORT: 3002,
-  SERVER: '127.0.0.1'
-}
+const $config = require('./config/app')
 
 $io.on('connection', ($socket) => {
   $socket.emit(`${$namespace} connection`, {
@@ -35,6 +32,6 @@ $io.on('connection', ($socket) => {
   })
 })
 
-$server.listen($config.PORT, $config.SERVER, () => {
-  console.log(`${$namespace} is running and listening to port ${$config.SERVER}:${$config.PORT}...`)
+$server.listen($config.PORT, $config.HOST, () => {
+  console.log(`${$namespace} is running and listening to port ${$config.HOST}:${$config.PORT}...`)
 })
