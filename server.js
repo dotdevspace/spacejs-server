@@ -7,8 +7,8 @@
  * @file: server.js
  */
 
-let $server = require('http').createServer()
-let $io = require('socket.io').listen($server)
+const $server = require('http').createServer()
+const $io = require('socket.io').listen($server)
 
 const $namespace = '.devSPACE'
 const $config = require('./config/app')
