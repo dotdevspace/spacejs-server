@@ -1,0 +1,18 @@
+{
+  "name": "spacejs-server",
+  "version": "0.0.1",
+  "description": "SpaceJS Server NodeJS, IO, SocketIO",
+  "author": ".dev SPACE",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:dotdevspace/spacejs-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dotdevspace/spacejs-server/issues"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  }
+}
