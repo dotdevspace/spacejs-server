@@ -11,8 +11,8 @@ const $fs = require('fs')
 const $config = require('./config/app')
 
 const $server = require('https').createServer({
-  key: $fs.readFileSync('/keys/privkey.pem'),
-  cert: $fs.readFileSync('/keys/fullchain.pem')
+  key: $fs.readFileSync('keys/privkey.pem'),
+  cert: $fs.readFileSync('keys/fullchain.pem')
 })
 
 const $io = require('socket.io').listen($server)
