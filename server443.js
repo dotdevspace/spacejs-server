@@ -36,9 +36,9 @@ $io.on('connection', ($socket) => {
     $socket.broadcast.emit($data.namespace, $data.data)
   })
 
-  $socket.on('disconnect', () => {
+  /*$socket.on('disconnect', () => {
     console.log(`Disconnect ${$namespace} IO :(`)
-  })
+  })*/
 })
 
 $server.listen($port, $host, () => {
