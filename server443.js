@@ -10,6 +10,9 @@
 const $fs = require('fs')
 const $config = require('./config/app')
 
+const $port = $config.PORT || 3000
+const $host = $config.HOST || '::'
+
 const $server = require('https').createServer({
   key: $fs.readFileSync('keys/privkey.pem'),
   cert: $fs.readFileSync('keys/fullchain.pem')
@@ -38,6 +41,6 @@ $io.on('connection', ($socket) => {
   })
 })
 
-$server.listen($config.PORT, $config.HOST, () => {
-  console.log(`${$namespace} is running and listening to port ${$config.HOST}:${$config.PORT}...`)
+$server.listen($port, $host, () => {
+  console.log(`${$namespace} is running and listening to port ${$host}:${$port}...`)
 })
