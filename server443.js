@@ -26,11 +26,11 @@ $io.on('connection', ($socket) => {
   })
 
   $socket.on(`${$namespace} me`, ($data) => {
-    $socket.emit($data.nsp, $data.data)
+    $socket.emit($data.namespace, $data.data)
   })
 
-  $socket.on(`${$namespace} buzz`, ($data) => {
-    $socket.broadcast.emit($data.nsp, $data.data)
+  $socket.on(`${$namespace} room`, ($data) => {
+    $socket.broadcast.emit($data.namespace, $data.data)
   })
 
   $socket.on('disconnect', () => {
