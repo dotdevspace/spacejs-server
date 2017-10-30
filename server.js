@@ -21,29 +21,22 @@ const $io = require('socket.io').listen($server)
 const $namespace = '.devSPACE'
 
 $io.on('connection', ($socket) => {
-  console.info('Connection ' + $socket.id);
-
   $socket.emit(`${$namespace} connection`, {
     socketId: $socket.id,
     connected: true
   })
 
   $socket.on(`${$namespace} me`, ($data) => {
-    console.log('ME');
-    console.log($data);
-    $socket.emit($data.nsp, $data.data)
+    $socket.emit($data.namespace, $data.data)
   })
 
   $socket.on(`${$namespace} room`, ($data) => {
-    console.log('ROOM');
-    console.log($data);
-    $socket.broadcast.emit($data.nsp, $data.data)
+    $socket.broadcast.emit($data.namespace, $data.data)
   })
 
-  $socket.on('disconnect', () => {
-    console.info('Disconnect ' + $socket.id);
+  /*$socket.on('disconnect', () => {
     console.log(`Disconnect ${$namespace} IO :(`)
-  })
+  })*/
 })
 
 $server.listen($port, $host, () => {
