@@ -7,17 +7,18 @@
  * @file: server.js
  */
 
-const $server = require('http').createServer(($request, $respond) => {
-  $respond.writeHead(200, {'Content-Type': 'text/plain'})
-  $respond.end('.dev SPACE')
-})
-const $io = require('socket.io').listen($server)
-
-const $namespace = '.devSPACE'
 const $config = require('./config/app')
 
 const $port = $config.PORT || 3000
 const $host = $config.HOST || '::'
+
+const $server = require('http').createServer(($request, $respond) => {
+  $respond.writeHead(200, {'Content-Type': 'text/plain'})
+  $respond.end(`.dev SPACE ${$host}:${$port}`)
+})
+const $io = require('socket.io').listen($server)
+
+const $namespace = '.devSPACE'
 
 $io.on('connection', ($socket) => {
   $socket.emit(`${$namespace} connection`, {

@@ -18,7 +18,7 @@ const $server = require('https').createServer({
   cert: $fs.readFileSync('keys/fullchain.pem')
 }, ($request, $respond) => {
   $respond.writeHead(200, {'Content-Type': 'text/plain'})
-  $respond.end('.dev SPACE')
+  $respond.end(`.dev SPACE ${$host}:${$port}`)
 })
 
 const $io = require('socket.io').listen($server)
