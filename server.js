@@ -29,13 +29,13 @@ $io.on('connection', ($socket) => {
     $socket.emit($data.nsp, $data.data)
   })
 
-  $socket.on(`${$namespace} buzz`, ($data) => {
+  $socket.on(`${$namespace} room`, ($data) => {
     $socket.broadcast.emit($data.nsp, $data.data)
   })
 
-  $socket.on('disconnect', () => {
+  /*$socket.on('disconnect', () => {
     console.log(`Disconnect ${$namespace} IO :(`)
-  })
+  })*/
 })
 
 $server.listen($port, $host, () => {
