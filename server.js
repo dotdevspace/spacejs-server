@@ -27,10 +27,12 @@ $io.on('connection', ($socket) => {
   })
 
   $socket.on(`${$namespace} me`, ($data) => {
+    console.log($data);
     $socket.emit($data.nsp, $data.data)
   })
 
   $socket.on(`${$namespace} room`, ($data) => {
+    console.log($data);
     $socket.broadcast.emit($data.nsp, $data.data)
   })
 
