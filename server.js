@@ -21,6 +21,8 @@ const $io = require('socket.io').listen($server)
 const $namespace = '.devSPACE'
 
 $io.on('connection', ($socket) => {
+  console.info('Connection ' + $socket.id);
+
   $socket.emit(`${$namespace} connection`, {
     socketId: $socket.id,
     connected: true
@@ -39,7 +41,7 @@ $io.on('connection', ($socket) => {
   })
 
   $socket.on('disconnect', () => {
-    console.log('Disconnect');
+    console.info('Disconnect ' + $socket.id);
     console.log(`Disconnect ${$namespace} IO :(`)
   })
 })
