@@ -27,18 +27,21 @@ $io.on('connection', ($socket) => {
   })
 
   $socket.on(`${$namespace} me`, ($data) => {
+    console.log('ME');
     console.log($data);
     $socket.emit($data.nsp, $data.data)
   })
 
   $socket.on(`${$namespace} room`, ($data) => {
+    console.log('ROOM');
     console.log($data);
     $socket.broadcast.emit($data.nsp, $data.data)
   })
 
-  /*$socket.on('disconnect', () => {
+  $socket.on('disconnect', () => {
+    console.log('Disconnect');
     console.log(`Disconnect ${$namespace} IO :(`)
-  })*/
+  })
 })
 
 $server.listen($port, $host, () => {
